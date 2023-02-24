@@ -207,6 +207,14 @@ Faire ```docker-compose up -d```
 1. Analysez le code du fichier docker-compose.yml 
 2. Pourquoi je partage le fichier socket de docker avec le container Jenkins ? 
 
+## Exercice Jenkins 2 : Creer un repo github app-blogs
+1. Creer un repo app-blogs dans votre compte github personnel.     
+2. Selectionner, README.md, .gitignore template python, Licence MIT.      
+3. git clone de ce repo en local et ouvrez le repo avec goland.   
+4. Copiez votre dockerfile de l'exercice 8 dans ce repo.     
+5. Ajoutez les fichiers necessaires pour faire un docker build de l'image app-blogs.  
+
+
 ## Configuration de Jenkins 
 Ouvrir votre navigateur et entrez l'url ```http://<ip_adresse_fournie>:30050```  
 Rechercher le mot de passe admin de jenkins dans le container jenkins   
@@ -214,13 +222,60 @@ la commande est ```docker logs jenkins_jenkins_1 ```
 le mot de passe est une chaine de caracteres entre les lignes avec des etoiles    
 **NE PAS INSTALLER DE PLUGINS, CLICKER sur la croix en haut a droite de la fenetre customize jenkins**  
 et apres selectionner start jenkins
+Rapidement allez en haut a droite de la fenetre jenkins et clicker sur admin. 
+Nous allons configurer le user admin, selectionner configure a gauche. entrez le mot de passe  
+12345678 pour que je puisse acceder a distance a votre jenkins.  
 
-## Exercice Jenkins 2 : Creer un repo github app-blogs
-1. Creer un repo app-blogs dans votre compte github personnel.     
-2. Selectionner, README.md, .gitignore template python, Licence MIT.      
-3. git clone de ce repo en local et ouvrez le repo avec goland.   
-4. Copiez votre dockerfile de l'exercice 8 dans ce repo.     
-5. Ajoutez les fichiers necessaires pour faire un docker build de l'image app-blogs.  
+### installer le plugin Github
+Selectionner dashboard    
+Selectionner manage Jenkins  
+selectioner dans la page manage plugins    
+selectioner a gauche available plugins  
+Dans la zone de recherche tapez gitub et ticker la checkbox  
+en bas de l'ecran clickez sur install without restart   
+Quand l'installation est terminee, retournez au dashboard 
+
+## Creer un job qui fait un docker build
+Selectionner dashboard   
+Selectionner la croix plus New Item     
+entrer item name app-blog-docker-build     
+Selectionner freestyle project  
+clicker ok  
+
+## Configuration du job
+Dans source code management, activer git   
+Dans le champ Repository URL, collez votre url de project github app-blogs      
+Changez la Branch Specifier */master en */main    
+Dans la zone Build steps, click sur le bouton Add build step et selectionner Execute shell    
+
+## Exercice Jenkins 3: Builder une image docker dans Jenkins 
+Entrez la commande pour builder une image nommee app 
+
+## Testez le job 
+Faire un save  
+Et clicker a gauche de l'ecran Build Now. 
+Verifier si votre image est presente dans votre VM avec la commande ```docker images``` 
+
+## Creer un job qui fait un docker run 
+Selectionner dashboard   
+Selectionner la croix plus New Item     
+entrer item name app-blog-docker-run       
+Selectionner freestyle project  
+clicker ok  
+
+## Configuration du job
+Dans la zone Build steps, click sur le bouton Add build step et selectionner Execute shell  
+
+## Exercice Jenkins 4: Builder une image docker dans Jenkins 
+Entrez un script bash shell qui cree un container nomme web qui ecoute sur le port 30101.  
+**Attention** : le code doit tester si le container existe deja et doit le detruire et le recree  
+
+
+
+
+
+
+ 
 
 
 

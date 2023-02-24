@@ -258,8 +258,8 @@ Verifier si votre image est presente dans votre VM avec la commande ```docker im
 
 ## Creer un job qui fait un docker run 
 Selectionner dashboard   
-Selectionner la croix plus New Item     
-entrer item name app-blog-docker-run       
+Selectionner le plus  New Item     
+entrer item name : app-blog-docker-run       
 Selectionner freestyle project  
 clicker ok  
 
@@ -268,17 +268,71 @@ Dans la zone Build steps, click sur le bouton Add build step et selectionner Exe
 
 ## Exercice Jenkins 4: Builder une image docker dans Jenkins 
 Entrez un script bash shell qui cree un container nomme web qui ecoute sur le port 30101.  
-**Attention** : le code doit tester si le container existe deja et doit le detruire et le recree  
+**Attention** : le code doit tester si le container existe deja et doit le detruire et le recreer  
 
 
+## Installation de JMeter 
+A partir de votre installation JMeter en local sur votre machine, creez un Test Plan  
+comme ci-dessous:
+Deplacer le curseur de la souris sur test plan et click droit  
+ menu  Add -> Config Element -> HTTP Request Defaults  
+Deplacer le curseur de la souris sur test plan et click droit  
+ menu  Add -> Thread -> Thread Group  
+Deplacer le curseur de la souris sur Thread group et click droit 
+ menu Add -> Sampler ->  Http request
+Deplacer le curseur de la souris sur Http request et click droit  
+ menu Add -> Assertions ->  Response assertion  
+Deplacer le curseur de la souris sur Thread Group et click droit  
+ menu Add -> Listener->  View Results Tree  
+
+![Jmeter TestPlan](screenshots/test_plan.png)
 
 
+Clicker sur Response Assertion  
+Dans Pattern to Test  click Add and entrer  Welcome   
+Clicker sur HTTP Request  
+Dans Server Name or IP: < vm_ip_address>   
+Port Number : 30101  
+Path: /blogs  
+Clicker View Results Tree   
+and pressez le triangle vert dans la bar d'icones de la fenetre Jmeter pour executer
 
+### Rendre le test plan generique 
 
+Ajouter des globales variable JMeter dans l'ecran test plan     
+Clicker sur Add , clicker sur la partie gauche de la ligne tapez IP  
+sur partie droite tapez  ${__P(IP,<our_ip>)} l'adresse IP de votre vm   
+Clicker sur Add , clicker sur la partie gauche de la ligne tapez PORT  
+sur partie droite tapez   ${__P(PORT,30101)}  
+
+![Jmeter_TestPlan_variables](screenshots/test_plan_variables.png)
+
+Ajouter dans Http_request_defaults entrez respectivement ${IP} et ${PORT}
+![Jmeter_http_request_defaults](screenshots/http_request_defaults_values.png)
  
+Enlever l'adresse IP et le port dans HTTP Request  
+et testez a nouveau votre test plan   
+vous devez avoir les memes resultats qu'avant  
+
+Enregistez votre test plan dans le projet app-blogs situe sur c:\projet
+avec le nom **jmeter_test_plan.jmx**  
+Faire un git commit et push dans github  
 
 
+ ## Exercice Jenkins 5: JMeter Jenkins Job 
+Creez un job jenkins en copiant le premier job que nous avons cree app-blogs-docker-build: 
 
+![Jmeter_TestPlan_variables](screenshots/freestyle_jmeter.png)
+
+Allez a build steps et remplacez dans Execute Shell la ligne par
+```jmeter -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t jmeter_test_plan.jmx  -l testresult.jlt```
+
+Clicker save et faire un build now pour tester 
+
+## Exercice Jenkins 6: Post-build et log parser  
+1. Trouvez le moyen de retrouver un erreur de jmeter dans les logs Jenkins.
+2. Changez votre test plan en provoquant une erreur dans le job jmeter.
+3. Mettre en oeuvre la solution.   
 
 
 

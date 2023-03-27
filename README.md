@@ -59,7 +59,7 @@ mount  # check
 (parted) mkpart logical 1075 2048MB
 ```
 
-## Exercice 6
+## Exercice 4
 Dans PyCharm allez dans File->Settings->Version control->github
 Appuyer sur la croix, en haut a gauche de cette fenetre et selectionnez log in with token.
 entrez votre token github

@@ -9,11 +9,12 @@ Ouvrir la directorie **tp-coaching-webforce3** dans PyCharm.
 Vous devez compléter le fichier README.md avec toutes les instructions nécessaires pour
 faire les différents exercices.
 
-## Exercice 1  - Scrum 
 Voici les détails de ce mini-projet.  
-*Installer sur une VM (fournie), un serveur Web en Python Flask fonctionnant sur le port 30101. 
-Ce serveur écrit les actions des utilisateurs dans un disque attaché à la VM. 
+*Installer sur une VM (fournie, machine de rebound, machine gcp) , un serveur Web en Python Flask fonctionnant sur le port 30101.
+Ce serveur écrit les actions des utilisateurs dans un disque attaché à la VM.
 écrire les instructions pour le pare-feu*
+
+## Exercice 1  - Scrum 
 
 **Préparer le dashboard Scrum pour ce projet.**
 
@@ -31,13 +32,13 @@ Faire un ```pip install flask``` , suivre les instructions pour installer pip si
 
 ## Exercice 3  - Storage 
 
-Recherche le disque supplémentaire de 1Gb connecté à la VM, précisez la commande utilisée
+Recherche le disque supplémentaire de 10Gb connecté à la VM, précisez la commande utilisée
 Formattez ce disque au format ext4  
-Monter (mount) ce disque sur le point montage /home/ubuntu/tp-coaching-webforce3/log
+Monter (mount) ce disque sur le point montage /home/<user>/tp-coaching-webforce3/log
 
 
 ## Exercice 4  - Git/Github 
-Dans PyCharm allez dans File->Settings->Version control->github  
+Dans RubyMine allez dans File->Settings->Version control->github  
 Appuyer sur la croix, en haut a gauche de cette fenetre et selectionnez log in with token.   
 entrez votre token github  
 Vous pouvez maintenant faire des git commit et git push depuis PyCharm   

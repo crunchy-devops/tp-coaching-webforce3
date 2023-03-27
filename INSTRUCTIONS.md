@@ -211,7 +211,7 @@ Faire ```docker-compose up -d```
 1. Creer un repo app-blogs dans votre compte github personnel.     
 2. Selectionner, README.md, .gitignore template python, Licence MIT.      
 3. git clone de ce repo en local et ouvrez le repo avec goland.   
-4. Copiez votre dockerfile de l'exercice 8 dans ce repo.     
+4. Copiez votre dockerfile de l'exercice 8 de la partie docker dans ce repo.     
 5. Ajoutez les fichiers necessaires pour faire un docker build de l'image app-blogs.  
 
 
@@ -268,7 +268,7 @@ Dans la zone Build steps, click sur le bouton Add build step et selectionner Exe
 
 ## Exercice Jenkins 4: Builder une image docker dans Jenkins 
 Entrez un script bash shell qui cree un container nomme web qui ecoute sur le port 30101.  
-**Attention** : le code doit tester si le container existe deja et doit le detruire et le recreer  
+**Attention** : le code doit tester si le container existe deja et si oui il doit le detruire et le recreer  
 
 
 ## Installation de JMeter 

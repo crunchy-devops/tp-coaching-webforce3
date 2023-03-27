@@ -9,11 +9,12 @@ Ouvrir la directorie **tp-coaching-webforce3** dans PyCharm.
 Vous devez compléter le fichier README.md avec toutes les instructions nécessaires pour
 faire les différents exercices.
 
-## Exercice 1  - Scrum 
 Voici les détails de ce mini-projet.  
-*Installer sur une VM (fournie), un serveur Web en Python Flask fonctionnant sur le port 30101. 
-Ce serveur écrit les actions des utilisateurs dans un disque attaché à la VM. 
+*Installer sur une VM (fournie), un serveur Web en Python Flask fonctionnant sur le port 30101.
+Ce serveur écrit les actions des utilisateurs dans un disque attaché à la VM.
 écrire les instructions pour le pare-feu*
+
+## Exercice 1  - Scrum 
 
 **Préparer le dashboard Scrum pour ce projet.**
 
@@ -166,7 +167,7 @@ Dans votre home directory creez une directory webforce.
 *- Dans la directory webforce , creer un playbook postgres.yml qui utilise le role  
 *- faire les commandes ansible Ad-hoc pour verifier l'OS et la version almalinux  
 Dans role postgresql.role  et dans la directory tasks  
-Creez un fichier nommee variables.yml , Copiez le code suivant:  
+Creez un fichier nomme variables.yml , Copiez le code suivant:  
 ```yaml
 ---
 # Variables configuration

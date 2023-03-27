@@ -28,3 +28,29 @@ Créer un fichier ansible-1.yaml qui automatise l'exercice 2 ci-dessus.
       dest: ~/.bashrc
       line: 'alias python="python3"'
 ```
+# TP ansible 2
+
+# TP ansible 3
+ Créer un fichier ansible-3.yaml qui automatise:
+ 1-activer le firewall d'ubuntu
+2-fermer le port 5000
+3-ouvrir le port 30101
+```
+---
+- name: Firewall ubuntu
+  hosts: localhost
+  become: true
+  tasks:
+   - name: active le firewall ubuntu
+     community.general.ufw:
+      state: enabled
+      policy: allow
+   - name: fermer le port 5000
+     community.general.ufw:
+      rule: deny
+      port : '5000'
+   - name: ouvrir le port 30101
+     community.general.ufw:
+      rule: allow
+      port: '30101'
+```

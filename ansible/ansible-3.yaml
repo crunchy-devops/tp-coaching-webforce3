@@ -1,0 +1,21 @@
+---
+- name: solution ansible 3
+  hosts: all
+  become: true
+  tasks:
+    - name: Enabled ufw
+      ufw:
+        state: enabled
+        policy: allow
+    - name: Denied port 5000
+      ufw:
+        rule: deny
+        port: 5000
+    - name: Allowed port 30101
+      ufw:
+        rule: allow
+        port: 30101
+    - name: Prevention
+      ufw:
+        rule: allow
+        port: 22

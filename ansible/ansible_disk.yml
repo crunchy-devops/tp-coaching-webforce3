@@ -1,0 +1,28 @@
+- name: Format disk with parted
+  hosts: all
+  become: true
+
+  vars:
+    disk_name: "/dev/sdd"
+    partition_number: "1"
+    partition_type: "primary"
+    file_system_type: "ext4"
+
+  tasks:
+    - name: Create partition table with parted
+      parted:
+        device: "{{ disk_name }}"
+        label: gpt
+        state: present
+
+    - name: Create partition with parted
+      parted:
+        device: "{{ disk_name }}"
+        number: "{{ partition_number }}"
+        flags: "{{ partition_type }}"
+        state: present
+
+    - name: Format partition with parted
+      filesystem:
+        fstype: "{{ file_system_type }}"
+        dev: "{{ disk_name }}{{ partition_number }}"

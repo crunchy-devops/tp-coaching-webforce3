@@ -1,0 +1,34 @@
+---
+- name: solution ansible 1
+  hosts: all
+  become: true
+  tasks:
+    - name: Update ubuntu
+      apt:
+        name: "*"
+        state: latest
+    - name: Check python version
+      shell: python -V
+      register: check_python
+      ignore_errors: yes
+    - name: Check python3 version
+      shell: python3 -V
+      register: check_python3
+    - name: Edit variable
+      debug:
+        msg: "Python version : {{ check_python3.stdout }}"
+      when: check_python3.rc == 0
+    - name: Insert alias in .bashrc
+      lineinfile:
+        path: /home/{{ ansible_user }}/.bashrc
+        regexp: 'alias python='
+        line: alias python='python3'
+      when: check_python3.stderr | length == 0
+    - name: source the changed bashrc file
+      shell: ". /home/ubuntu/.bashrc"
+      register: bashrc
+    - name: install pip
+      package:
+        name: pip
+        state: present
+      when: bashrc.rc == 0

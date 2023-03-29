@@ -11,11 +11,13 @@ Ouvrir la directorie **tp-coaching-webforce3** dans PyCharm.
 Vous devez compléter le fichier README.md avec toutes les instructions nécessaires pour
 faire les différents exercices.
 
-## Exercice 1  - Scrum 
 Voici les détails de ce mini-projet.  
-*Installer sur une VM (fournie), un serveur Web en Python Flask fonctionnant sur le port 30101. 
-Ce serveur écrit les actions des utilisateurs dans un disque attaché à la VM. 
+*Installer sur une VM (fournie), un serveur Web en Python Flask fonctionnant sur le port 30101.
+Ce serveur écrit les actions des utilisateurs dans un disque attaché à la VM.
 écrire les instructions pour le pare-feu*
+
+
+## Exercice 1  - Scrum 
 
 **Préparer le dashboard Scrum pour ce projet.**
 
@@ -83,7 +85,7 @@ Vérifier que le fichier record.log existe bien dans la directory log
 # TP sur Docker
 
 ---
-**Creez un compte DockerHub https://hub.docker.com/**
+**Créez un compte DockerHub https://hub.docker.com/**
 **Créez un compte chatGPT sur https://openai.com/blog/chatgpt/**  
 **Mettez vous sur la branche git nommée docker**  
 
